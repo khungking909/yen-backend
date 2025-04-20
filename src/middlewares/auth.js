@@ -1,6 +1,8 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 
+const secretKey = 'truonghuynh'
+
 export const auth = async (req, res, next) => {
   try {
     if (!req.header("Authorization")) {
@@ -12,7 +14,7 @@ export const auth = async (req, res, next) => {
     let data;
 
     try {
-      data = jwt.verify(token, process.env.SECRET_KEY);
+      data = jwt.verify(token, secretKey);
     } catch (err) {
       if (err.name === "TokenExpiredError") {
         return res.status(401).json({ error: "Token expired" });

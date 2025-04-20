@@ -1,6 +1,8 @@
 import jwt from "jsonwebtoken";
 import { userService } from "../services/index.js";
 
+const secretKey = 'truonghuynh'
+
 const login = async (req, res) => {
   const { username, password } = req.body;
 
@@ -16,7 +18,7 @@ const login = async (req, res) => {
           ...user,
           password: undefined,
         },
-        process.env.SECRET_KEY,
+        secretKey,
         {
           expiresIn: "7d",
         }

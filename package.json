@@ -14,8 +14,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --inspect src/index.js",
-    "build": "echo 'No build needed'"
+    "start": "nodemon --inspect src/index.js"
   },
   "author": "",
   "license": "ISC",

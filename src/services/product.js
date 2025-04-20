@@ -14,6 +14,8 @@ const getAllProducts = async (page, limit) => {
 
     return products.rows;
   } catch (error) {
+
+    console.log(error);
     return [];
   }
 }

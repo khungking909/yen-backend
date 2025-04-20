@@ -20,7 +20,8 @@ const Cart = DB.define(
   },
   {
     tableName: "carts",
-    timestamps: true,
+    updatedAt: 'updated_at',
+    createdAt: 'created_at'
   }
 );
 

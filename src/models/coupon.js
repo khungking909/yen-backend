@@ -19,8 +19,9 @@ const Coupon = DB.define(
     },
   },
   {
-    tableName: "Coupon",
-    timestamps: true,
+    tableName: "coupon",
+    updatedAt: 'updated_at',
+    createdAt: 'created_at'
   }
 );
 

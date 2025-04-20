@@ -36,7 +36,8 @@ const Review = DB.define(
   },
   {
     tableName: "reviews",
-    timestamps: true,
+    updatedAt: 'updated_at',
+    createdAt: 'created_at'
   }
 );
 

@@ -2,6 +2,7 @@ import { productService } from "../services/index.js";
 
 const getAllProducts = async (req, res) => {
   try {
+    
     const { page, limit } = req.query;
     const products = await productService.getAllProducts(page, limit);
 

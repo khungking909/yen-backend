@@ -1,10 +1,12 @@
 import { Sequelize } from 'sequelize'
+import mysql2 from "mysql2";
 
 export const DB = new Sequelize('bgdhc6nbqbgb1osph6g8', 'u9hcylqlehufsgro', 'muqUVO5eEp7yIifT237E', {
   host: 'bgdhc6nbqbgb1osph6g8-mysql.services.clever-cloud.com',
   port: 3306,
   dialect: 'mysql',
-  logging: false
+  logging: false,
+  dialectModule: mysql2,
 })
 
 export const connectDB = async () => {

@@ -11,6 +11,7 @@ const getCartByUserId = async (req, res) => {
       totalPrice: products.reduce((acc, product) => acc + product.price * product.quantity, 0),
     });
   } catch (error) {
+  
     res.status(500).json([]);
   }
 };

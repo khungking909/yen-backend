@@ -7,13 +7,11 @@ const route = express.Router();
 
 route.post(
   "/login",
-  body("username").isEmail(),
   body("password").isLength({ min: 5 }),
   userController.login
 );
 route.post(
   "/register",
-  body("username").isEmail(),
   body("password").isLength({ min: 5 }),
   userController.register
 );

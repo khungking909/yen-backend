@@ -34,7 +34,6 @@ const login = async (req, res) => {
       message: "Username or password is incorrect",
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       message: "Internal server error",
     });
@@ -58,7 +57,7 @@ const register = async (req, res) => {
           ...user,
           password: undefined,
         },
-        process.env.SECRET_KEY,
+        secretKey,
         {
           expiresIn: "7d",
         }
@@ -81,15 +80,16 @@ const register = async (req, res) => {
 };
 
 const getMe = (req, res) => {
+  const { user } = req;
+  if (!user) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
+
   res.status(200).json({
     message: "Success",
-    user: {
-      id: req.user.dataValues.id,
-      username: req.user.dataValues.username,
-      email: req.user.dataValues.email,
-      avatar: req.user.dataValues.avatar,
-      role: 'admin',
-    }
+    user
   });
 }
 

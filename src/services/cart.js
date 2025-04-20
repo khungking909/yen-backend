@@ -4,8 +4,10 @@ const getAllProductsIntoCartByUserId = async (userId) => {
   try {
     const cart = await Cart.findOne({ where: { user_id: userId } });
 
+    if (!cart) return [];
+
     return cart.products || [];
-  } catch (error) {
+  } catch (error) {   
     throw error;
   }
 };
@@ -37,7 +39,10 @@ const addToCart = async (userId, product) => {
         }; 
           
         if (isSameExceptQuantity(existingProduct, product)) {
-          existingProducts[productIndex].quantity += product.quantity;
+          const totalQuantity = existingProduct.quantity + product.quantity;
+
+          existingProducts[productIndex].quantity =
+            totalQuantity > product.stock ? product.stock : totalQuantity;
         } else {
           existingProducts.push(product);
         }

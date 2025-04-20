@@ -17,7 +17,7 @@ const login = async ({ username, password }) => {
       return null;
     }
     
-    return user;
+    return user.dataValues;
   } catch (error) {
     throw error;
   }
@@ -42,7 +42,10 @@ const register = async ({ username, password }) => {
       email: username,
     });
 
-    return newUser;
+    console.log(newUser.dataValues);
+    
+
+    return newUser.dataValues;
   } catch (error) {
     console.log(error);
     

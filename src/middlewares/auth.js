@@ -16,6 +16,8 @@ export const auth = async (req, res, next) => {
     try {
       data = jwt.verify(token, secretKey);
     } catch (err) {
+      console.log(err);
+      
       if (err.name === "TokenExpiredError") {
         return res.status(401).json({ error: "Token expired" });
       }
@@ -28,7 +30,7 @@ export const auth = async (req, res, next) => {
       return res.status(401).json({ error: "User not found" });
     }
 
-    req.user = user;
+    req.user = user.dataValues;
     req.token = token;
     next();
   } catch (error) {

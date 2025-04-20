@@ -1,7 +1,8 @@
 import { Sequelize } from 'sequelize'
 
-export const DB = new Sequelize('yensao', 'root', '123456', {
-  host: 'localhost',
+export const DB = new Sequelize('bgdhc6nbqbgb1osph6g8', 'u9hcylqlehufsgro', 'muqUVO5eEp7yIifT237E', {
+  host: 'bgdhc6nbqbgb1osph6g8-mysql.services.clever-cloud.com',
+  port: 3306,
   dialect: 'mysql',
   logging: false
 })
@@ -11,7 +12,7 @@ export const connectDB = async () => {
     await DB.authenticate()
     console.log('Database connected')
   } catch (error) {
-    console.log('Database connect failed')
+    console.log('Database connect failed', error)
   }
 }
 

@@ -15,9 +15,17 @@ app.use(
   })
 );
 route(app)
-app.listen(process.env.PORT, () => {
-  console.log(`RUNNING IN PORT = ${process.env.PORT}`);
-  connectDB();
-  associateModels();
-  syncDatabase(DB);
-});
+
+connectDB();
+associateModels();
+syncDatabase(DB);
+
+export default app;
+
+
+// app.listen(process.env.PORT, () => {
+//   console.log(`RUNNING IN PORT = ${process.env.PORT}`);
+//   connectDB();
+//   associateModels();
+//   syncDatabase(DB);
+// });

@@ -11,6 +11,12 @@ route.post(
   body("password").isLength({ min: 5 }),
   userController.login
 );
+route.post(
+  "/register",
+  body("username").isEmail(),
+  body("password").isLength({ min: 5 }),
+  userController.register
+);
 route.get("/me", auth, userController.getMe);
 
 export default route;

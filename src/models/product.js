@@ -80,8 +80,7 @@ const Product = DB.define(
   },
   {
     tableName: "products",
-    updatedAt: 'updated_at',
-    createdAt: 'created_at'
+    timestamps: true,
   }
 );
 

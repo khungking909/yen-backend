@@ -30,8 +30,7 @@ const User = DB.define(
   },
   {
     tableName: "users",
-    updatedAt: 'updated_at',
-    createdAt: 'created_at'
+    timestamps: true,
   }
 );
 
